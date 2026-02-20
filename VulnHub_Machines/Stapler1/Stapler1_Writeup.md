@@ -9,7 +9,7 @@
 
 ---
 
-# 1️⃣ Network Discovery
+# 1. Network Discovery
 
 First, I scanned the local network to identify the target machine:
 
@@ -25,7 +25,7 @@ The target machine was identified as:
 
 ---
 
-# Full Port Scan
+# 2. Full Port Scan
 
 Next, I performed a service and version detection scan:
 
@@ -47,7 +47,7 @@ nmap -A 192.168.122.99
 
 ---
 
-# Initial Attack Strategy
+# 3. Initial Attack Strategy
 
 Since the goal is to get root access as quickly as possible, I prioritized:
 
@@ -57,7 +57,7 @@ Since the goal is to get root access as quickly as possible, I prioritized:
 
 ---
 
-# Investigating Port 666
+# 4. Investigating Port 666
 
 Using netcat to grab the file:
 
@@ -69,7 +69,7 @@ The file extracted was an image file.
 
 ---
 
-#  FTP Enumeration
+# 5. FTP Enumeration
 
 Connected to FTP using anonymous credentials:
 
@@ -114,7 +114,7 @@ get note note.txt
 
 ---
 
-# SMB Enumeration
+# 6. SMB Enumeration
 
 From the Nmap scan:
 
@@ -130,7 +130,7 @@ This vulnerability allows remote code execution (RCE).
 
 ---
 
-#  Exploitation (Samba RCE)
+# 7. Exploitation (Samba RCE)
 
 Used Metasploit module:
 
@@ -153,7 +153,7 @@ The exploit successfully loaded and returned a shell.
 
 ---
 
-# Root Access
+# 8. Root Access
 
 Checking privileges:
 
@@ -179,7 +179,7 @@ root
 
 ---
 
-# Capturing the Flag
+# 9. Capturing the Flag
 
 ```bash
 cat /root/flag.txt
